@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tip Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Tip Calculator</h1>
+<form id="tipCalculator">
+    <label for="billAmount">Bill Amount (Rs):</label><br>
+    <input type="number" id="billAmount" required><br>
+    <label for="tipPercentage">Tip Percentage (%):</label><br>
+    <input type="number" id="tipPercentage" required><br>
+    <label for="numberOfPeople">Number of People:</label><br>
+    <input type="number" id="numberOfPeople" required><br>
+    <button type="button" onclick="calculateTip()">Calculate</button>
+</form>
+<div id="result"></div>
+
+<script>
+function calculateTip() {
+    // Get input values
+    var billAmount = parseFloat(document.getElementById("billAmount").value);
+    var tipPercentage = parseFloat(document.getElementById("tipPercentage").value);
+    var numberOfPeople = parseInt(document.getElementById("numberOfPeople").value);
+
+    // Calculate tip amount
+    var tipAmount = (billAmount * tipPercentage) / 100;
+
+    // Calculate total amount
+    var totalAmount = billAmount + tipAmount;
+
+    // Calculate amount per person
+    var amountPerPerson = totalAmount / numberOfPeople;
+
+    // Display result
+    var result = document.getElementById("result");
+    result.innerHTML = `<p>Tip Amount: ${tipAmount.toFixed(2)} Rs</p>
+                        <p>Total Amount: ${totalAmount.toFixed(2)} Rs</p>
+                        <p>Amount Per Person: ${amountPerPerson.toFixed(2)} Rs</p>`;
+}
+</script>
+</body>
+</html>

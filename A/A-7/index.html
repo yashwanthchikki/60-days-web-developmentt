@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage Calculator</title>
+<style>
+    /* Basic styling */
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    input {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+<h1>Mortgage Calculator</h1>
+<form id="mortgageCalculator">
+    <label for="loanAmount">Loan Amount (Rs):</label><br>
+    <input type="number" id="loanAmount" required><br>
+    <label for="interestRate">Interest Rate (% per year):</label><br>
+    <input type="number" id="interestRate" required><br>
+    <label for="loanTerm">Loan Term (years):</label><br>
+    <input type="number" id="loanTerm" required><br>
+    <button type="button" onclick="calculateMonthlyPayment()">Calculate</button>
+</form>
+<div id="result"></div>
+
+<script>
+function calculateMonthlyPayment() {
+    // Get input values
+    var loanAmount = parseFloat(document.getElementById("loanAmount").value);
+    var interestRate = parseFloat(document.getElementById("interestRate").value);
+    var loanTerm = parseFloat(document.getElementById("loanTerm").value);
+
+    // Convert interest rate to monthly rate
+    var monthlyInterestRate = interestRate / 100 / 12;
+
+    // Calculate monthly payment
+    var numPayments = loanTerm * 12;
+    var monthlyPayment = (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numPayments));
+
+    // Display result
+    var resultElement = document.getElementById("result");
+    resultElement.innerHTML = `<p>Monthly Payment: Rs ${monthlyPayment.toFixed(2)}</p>`;
+}
+</script>
+</body>
+</html>

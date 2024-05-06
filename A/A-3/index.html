@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Conversion</title>
+    <script>
+        function convert() {
+            var conversionType = document.getElementById("conversionType").value;
+            var inputValue = parseFloat(document.getElementById("inputValue").value);
+            var result;
+
+            switch(conversionType) {
+                case "cm_to_inch":
+                    result = inputValue / 2.54;
+                    document.getElementById("output").innerText = "Result: " + result.toFixed(2) + " inches";
+                    break;
+                case "inch_to_cm":
+                    result = inputValue * 2.54;
+                    document.getElementById("output").innerText = "Result: " + result.toFixed(2) + " centimeters";
+                    break;
+                case "cm_to_mm":
+                    result = inputValue * 10;
+                    document.getElementById("output").innerText = "Result: " + result.toFixed(2) + " millimeters";
+                    break;
+                case "mm_to_cm":
+                    result = inputValue / 10;
+                    document.getElementById("output").innerText = "Result: " + result.toFixed(2) + " centimeters";
+                    break;
+                case "mm_to_km":
+                    result = inputValue / 1000000;
+                    document.getElementById("output").innerText = "Result: " + result.toFixed(2) + " kilometers";
+                    break;
+                case "km_to_mm":
+                    result = inputValue * 1000000;
+                    document.getElementById("output").innerText = "Result: " + result.toFixed(2) + " millimeters";
+                    break;
+                case "km_to_miles":
+                    result = inputValue * 0.621371;
+                    document.getElementById("output").innerText = "Result: " + result.toFixed(2) + " miles";
+                    break;
+                case "miles_to_km":
+                    result = inputValue / 0.621371;
+                    document.getElementById("output").innerText = "Result: " + result.toFixed(2) + " kilometers";
+                    break;
+                case "m_to_ft":
+                    result = inputValue * 3.28084;
+                    document.getElementById("output").innerText = "Result: " + result.toFixed(2) + " feet";
+                    break;
+                case "ft_to_m":
+                    result = inputValue / 3.28084;
+                    document.getElementById("output").innerText = "Result: " + result.toFixed(2) + " meters";
+                    break;
+                default:
+                    document.getElementById("output").innerText = "Invalid conversion type!";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Unit Conversion</h2>
+    <label for="conversionType">Choose Conversion:</label>
+    <select id="conversionType">
+        <option value="cm_to_inch">Centimeter to Inch</option>
+        <option value="inch_to_cm">Inch to Centimeter</option>
+        <option value="cm_to_mm">Centimeter to Millimeter</option>
+        <option value="mm_to_cm">Millimeter to Centimeter</option>
+        <option value="mm_to_km">Millimeter to Kilometer</option>
+        <option value="km_to_mm">Kilometer to Millimeter</option>
+        <option value="km_to_miles">Kilometer to Miles</option>
+        <option value="miles_to_km">Miles to Kilometer</option>
+        <option value="m_to_ft">Meter to Feet</option>
+        <option value="ft_to_m">Feet to Meter</option>
+    </select><br><br>
+    <label for="inputValue">Enter Value:</label>
+    <input type="number" id="inputValue"><br><br>
+    <button onclick="convert()">Convert</button><br><br>
+    <div id="output"></div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recipe Form</h1>
+        <form action="/submit" method="POST">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <label for="ingredients">Ingredients:</label>
+            <textarea id="ingredients" name="ingredients" rows="4" required></textarea>
+
+            <label for="instructions">Instructions:</label>
+            <textarea id="instructions" name="instructions" rows="4" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

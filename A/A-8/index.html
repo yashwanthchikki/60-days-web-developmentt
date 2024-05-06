@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time Zone Converter</title>
+<style>
+    /* Basic styling */
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    input {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+<h1>Time Zone Converter</h1>
+<form id="timeZoneConverter">
+    <label for="inputTime">Input Time:</label><br>
+    <input type="time" id="inputTime" required><br>
+    <label for="inputTimeZone">Input Time Zone:</label><br>
+    <select id="inputTimeZone" required>
+        <option value="UTC">UTC</option>
+        <option value="EST">EST</option>
+        <option value="PST">PST</option>
+        <!-- Add more time zones here -->
+    </select><br>
+    <label for="outputTimeZone">Output Time Zone:</label><br>
+    <select id="outputTimeZone" required>
+        <option value="UTC">UTC</option>
+        <option value="EST">EST</option>
+        <option value="PST">PST</option>
+        <!-- Add more time zones here -->
+    </select><br>
+    <button type="button" onclick="convertTime()">Convert Time</button>
+</form>
+<div id="convertedTime"></div>
+
+<script>
+function convertTime() {
+    // Get input values
+    var inputTime = document.getElementById("inputTime").value;
+    var inputTimeZone = document.getElementById("inputTimeZone").value;
+    var outputTimeZone = document.getElementById("outputTimeZone").value;
+
+    // Convert input time to date object
+    var inputDate = new Date(`1970-01-01T${inputTime}:00${inputTimeZone}`);
+
+    // Convert input time to output time zone
+    var outputTime = inputDate.toLocaleTimeString('en-US', {timeZone: outputTimeZone});
+
+    // Display converted time
+    var convertedTimeElement = document.getElementById("convertedTime");
+    convertedTimeElement.innerHTML = `<p>Converted Time: ${outputTime}</p>`;
+}
+</script>
+</body>
+</html>

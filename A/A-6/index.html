@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percentage Calculator</title>
+<style>
+    /* Basic styling */
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    input {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+<h1>Percentage Calculator</h1>
+<form id="percentageCalculator">
+    <label for="originalValue">Original Value:</label><br>
+    <input type="number" id="originalValue" required><br>
+    <label for="percentage">Percentage (%):</label><br>
+    <input type="number" id="percentage" required><br>
+    <button type="button" onclick="calculatePercentage()">Calculate</button>
+</form>
+<div id="result"></div>
+
+<script>
+function calculatePercentage() {
+    // Get input values
+    var originalValue = parseFloat(document.getElementById("originalValue").value);
+    var percentage = parseFloat(document.getElementById("percentage").value);
+
+    // Calculate percentage
+    var result = (originalValue * percentage) / 100;
+
+    // Display result
+    var resultElement = document.getElementById("result");
+    resultElement.innerHTML = `<p>${percentage}% of ${originalValue} is ${result}</p>`;
+}
+</script>
+</body>
+</html>

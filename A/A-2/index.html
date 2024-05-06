@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <label>enter your height</label><br>
+        <input type='number' id='height' placeholder="enter in cm"><br>
+        <label>enter your weight</label><br>
+        <input type='number' id='weight' placeholder="enter in kg "><br>
+        <button id='submit' onclick="result(event)">submit</button>
+        <h1 id="result" ></h1>
+        
+    </form>
+    <script type="text/javascript">
+        
+        function result( event){
+            event.preventDefault();
+            var h=document.getElementById('height').value;
+            var w=document.getElementById('weight').value;
+        
+            var bmi = (w/ (h * h)) * 10000;
+            document.getElementById('result').innerHTML="<h1> the bmi is "+ bmi + "</h1><br><p>Underweight: BMI less than 18.5<br>Normal weight: BMI 18.5 - 24.9<br>Overweight: BMI 25 - 29.9<br>Obesity (Class 1): BMI 30 - 34.9<br>Obesity (Class 2): BMI 35 - 39.9<br>Obesity (Class 3 - Morbid Obesity): BMI 40 or greater</p>"
+
+
+            
+
+        }
+
+    </script>
+</body>
+</html>

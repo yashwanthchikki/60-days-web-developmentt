@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+   
+
+</head>
+<body>
+    <form>
+        
+        <label > click to convert from fhranate to degree</label><br>
+        <button type="button"  onclick="farhnite_to_degree(event)" ></button><br>
+        <label > click to convert from degree to fhranate</label><br>
+        <button type="button" onclick=" degree_to_farhnite(event)"></button><br>
+        <p id="ans"></p>
+        
+    </form>
+    <script type="text/javascript">
+        function farhnite_to_degree(event){
+            event.preventDefault();
+            document.getElementById("ans").innerHTML="<div><form><label> enter the value to convert</label><br><input type='number' id='ftd' placeholder='ENTER THE VALUE'><button id='f to d' onclick='calcftod()'>submit</button><br></form></div>"
+            
+         }
+         function degree_to_farhnite(event){
+            event.preventDefault();
+            document.getElementById("ans").innerHTML="<div><form><label> enter the value to convert</label><br><input type='number' id='dtf' placeholder='ENTER THE VALUE'><button id='d to f' onclick='calcdtof()'>submit</button><br></form></div>"
+            
+         }
+         function calcftod(){
+            var f=document.getElementById('ftd').value
+            var c=(f - 32) / 1.8
+            document.getElementById("ans").innerHTML = "Celsius: " + c.toFixed(2)
+         }
+         function calcdtof(){
+            var c=document.getElementById('dtf').value
+            var f=(c * 1.8) + 32
+            document.getElementById("ans").innerHTML = "fhranite " + f.toFixed(2)
+         }
+
+    </script>
+    
+</body>
+</html>

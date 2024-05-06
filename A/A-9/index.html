@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuel Consumption Calculator</title>
+<style>
+    /* Basic styling */
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    input {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+<h1>Fuel Consumption Calculator</h1>
+<form id="fuelConsumptionCalculator">
+    <label for="distance">Distance Traveled (in km):</label><br>
+    <input type="number" id="distance" required><br>
+    <label for="fuel">Fuel Consumed (in liters):</label><br>
+    <input type="number" id="fuel" required><br>
+    <button type="button" onclick="calculateFuelEfficiency()">Calculate</button>
+</form>
+<div id="result"></div>
+
+<script>
+function calculateFuelEfficiency() {
+    // Get input values
+    var distance = parseFloat(document.getElementById("distance").value);
+    var fuel = parseFloat(document.getElementById("fuel").value);
+
+    // Calculate fuel efficiency (km/l)
+    var fuelEfficiency = distance / fuel;
+
+    // Display result
+    var resultElement = document.getElementById("result");
+    resultElement.innerHTML = `<p>Fuel Efficiency: ${fuelEfficiency.toFixed(2)} km/l</p>`;
+}
+</script>
+</body>
+</html>
