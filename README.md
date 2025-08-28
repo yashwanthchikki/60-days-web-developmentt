@@ -55,8 +55,8 @@ Day 24: News Aggregator
   API: Aggregate news articles from various sources using news APIs.<br>
 Day 25: Random Cat Image Generator
   API: Use a cat image API to display random cat images.<br>
-Day 26: Dog Breed Information
-  API: Utilize a dog breed API to provide information about different dog breeds.<br>
+Day 26: qr code gen
+  API: generate qr code on a info provideds.<br>
 Day 27: Chuck Norris Jokes
   API: Integrate with a Chuck Norris jokes API to display random jokes.<br>
 Day 28: NASA Astronomy Picture of the Day
