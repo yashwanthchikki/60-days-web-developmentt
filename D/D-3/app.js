@@ -30,7 +30,7 @@ app.get('/',async(req,res,next)=>{
     let db
     try{
         db=await connect()
-        const result=await db.all("SELECT * FROM BlogPosts ORDER BY created_at DESC")
+        const result=await db.all("SELECT * FROM  BlogPosts")
         return res.json(result)
 
 

@@ -3,7 +3,7 @@ const { open } = require("sqlite");
 
 let db;
 
-async function conect() {
+async function connect() {
     if (!db) {
         try {
             db = await open({
@@ -11,7 +11,7 @@ async function conect() {
                 driver: sqlite3.Database
             });
 
-            await db.exec("CREATE TABLE BlogPosts (id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT NOT NULL,content TEXT NOT NULL,author TEXT NOT NULL);"); 
+            await db.exec("CREATE TABLE IF NOT EXISTS BlogPosts (id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT NOT NULL,content TEXT NOT NULL,author TEXT NOT NULL);"); 
         } catch (err) {
             
             throw err;
@@ -20,4 +20,4 @@ async function conect() {
     return db;
 }
 
-module.export={connect}
+module.exports=connect
